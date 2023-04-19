@@ -39,7 +39,10 @@ type Order =
       fullfillmentDate: Date;
     };
 
-export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
+type orderNew = NonNullable<Order>;
+type orderNull = null;
+type orderControl = orderNew | orderNull;
+export const filterOnlyInitialAndInWorkOrder = (order: Order): orderControl => {
   if (order.state === "initial" || order.state === "inWork") {
     return order;
   }

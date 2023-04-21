@@ -36,5 +36,5 @@ type Order =
       produceEstimate: Date;
       fullfillmentDate: Date;
     };
-
-export const getOrderState = (order: Order): FIXME => order.state;
+type OrderState = Order["state"];
+export const getOrderState = (order: Order): OrderState => order.state;

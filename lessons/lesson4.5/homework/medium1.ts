@@ -39,6 +39,15 @@ type Order =
       fullfillmentDate: Date;
     };
 
+type NewOrder =
+  | {
+      state: "initial";
+    }
+  | {
+      state: "inWork";
+    };
+
+type orderControl = Extract<Order, NewOrder>;
 export const filterOnlyInitialAndInWorkOrder = (order: Order): FIXME => {
   if (order.state === "initial" || order.state === "inWork") {
     return order;
